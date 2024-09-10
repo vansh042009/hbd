@@ -1,0 +1,195 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Happy Birthday Kanak!</title> 
+    <style> 
+        body { 
+            background-color: #f0f0f0; 
+            font-family: 'Arial', sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            overflow: hidden; /* Prevent scrollbars */ 
+        } 
+ 
+        .container { 
+            background-color: #fff; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            text-align: center; 
+            position: relative; /* For positioning the heart */ 
+        } 
+ 
+        h1 { 
+            color: #ff6600; /* Orange color */ 
+            font-size: 48px; 
+            margin-bottom: 20px; 
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+            animation: glow 1s infinite alternate; 
+        } 
+ 
+        @keyframes glow { 
+            0% { 
+                text-shadow: 0 0 10px #ff6600; 
+            } 
+            100% { 
+                text-shadow: 0 0 20px #ff6600; 
+            } 
+        } 
+ 
+        p { 
+            font-size: 20px; 
+            line-height: 1.6; 
+            margin-bottom: 30px; 
+        } 
+ 
+        .heart { 
+            position: absolute; 
+            bottom: 20px; 
+            right: 20px; 
+            width: 100px; 
+            height: 100px; 
+            background-color: #ff6600; 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            transition: transform 0.3s ease; 
+            z-index: 10; /* Ensure heart is on top */ 
+        } 
+ 
+        .heart:hover { 
+            transform: scale(1.1); 
+        } 
+ 
+        .heart i { 
+            font-size: 50px; 
+            color: #fff; 
+            animation: heart-beat 1s infinite; 
+        } 
+ 
+        @keyframes heart-beat { 
+            0% { 
+                transform: scale(1); 
+            } 
+            50% { 
+                transform: scale(1.1); 
+            } 
+            100% { 
+                transform: scale(1); 
+            } 
+        } 
+ 
+        .heart-popup { 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 80%; /* Make it wider */ 
+            max-width: 600px; /* Set maximum width */ 
+            background-color: #fff; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+            display: none; 
+            z-index: 100; /* Ensure popup is on top */ 
+            text-align: center; 
+            font-size: 20px; 
+        } 
+ 
+        .heart-popup h2 { 
+            color: #ff6600; 
+            font-size: 32px; /* Larger heading */ 
+            margin-bottom: 10px; 
+        } 
+ 
+        .heart-popup p { 
+            font-size: 18px; 
+            line-height: 1.5; 
+        } 
+ 
+        .close-popup { 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            cursor: pointer; 
+            font-size: 20px; 
+            color: #ff6600; 
+            font-weight: bold; 
+        } 
+ 
+        .confetti { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            pointer-events: none; /* Allow clicks through confetti */ 
+        } 
+ 
+        .confetti .piece { 
+            position: absolute; 
+            width: 10px; 
+            height: 10px; 
+            background-color: #ff6600; /* Orange confetti */ 
+            border-radius: 50%; 
+            animation: confetti-fall 5s linear infinite; 
+            transform-origin: 50% 100%; 
+        } 
+ 
+        @keyframes confetti-fall { 
+            0% { 
+                transform: translate(0, 0) rotate(0deg); 
+            } 
+            100% { 
+                transform: translate(calc(random(-100px, 100px)), 100vh) rotate(360deg); 
+            } 
+        } 
+ 
+        .confetti .piece:nth-child(even) { 
+            background-color: #ffcc00; /* Yellow confetti */ 
+        } 
+ 
+        .confetti .piece:nth-child(odd) { 
+            background-color: #ff9900; /* Darker orange confetti */ 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div class="confetti"> 
+        <div class="piece" style="top: 10%; left: 20%;"></div> 
+        <div class="piece" style="top: 30%; left: 70%;"></div> 
+        <div class="piece" style="top: 50%; left: 40%;"></div> 
+        <div class="piece" style="top: 70%; left: 90%;"></div> 
+        <div class="piece" style="top: 90%; left: 10%;"></div> 
+    </div> 
+    <div class="container"> 
+        <h1>Happy Birthday Kanak!</h1> 
+        My love, you are the sunshine in my life, the laughter in my heart, and the reason for every smile. I love you more than words can express. May this special day be filled with joy, laughter, and all the things that make you happy. I wish you a birthday filled with love and happiness.  
+        <div class="heart" onclick="showHeartPopup()"> 
+            <i>&#10084;</i> 
+        </div> 
+        <div class="heart-popup" id="heartPopup"> 
+            <span class="close-popup" onclick="closePopup()">×</span> 
+            <h2>Happy Birthday, KitKat! 🎉🎂</h2> 
+            You bring so much joy and sweetness into my life, just like your namesake. May your day be filled with love, laughter, and all the happiness in the world. You are my favorite treat, and I feel so lucky to have you by my side. Here's to creating more wonderful memories together. Love you ♾️ 💖💝 
+        </div> 
+    </div> 
+ 
+    <script> 
+        function showHeartPopup() { 
+            document.getElementById("heartPopup").style.display = "block"; 
+        } 
+ 
+        function closePopup() { 
+            document.getElementById("heartPopup").style.display = "none"; 
+        } 
+    </script> 
+</body> 
+</html> 
